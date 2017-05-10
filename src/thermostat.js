@@ -8,8 +8,13 @@ Thermostat.prototype.up = function(number) {
 };
 
 Thermostat.prototype.down = function(number) {
-  if (this._temp === this._minTemp){
+  if (this._temp === this._minTemp) {
     throw  'Minimum temp reached.';
-  } else {
-      this._temp -= number;}
+  }
+  else if (this._minTemp > (this._temp - number)) {
+    throw 'Minimum temp exceeded';
+  }
+  else {
+    this._temp -= number;
+  }
 };
