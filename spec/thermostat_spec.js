@@ -65,4 +65,11 @@ describe('Thermostat', function(){
       expect(britishGas._temp).toEqual(20);
     });
   });
+
+  describe('current energy usage', function() {
+    it('less than 18 return "low usage"', function() {
+      britishGas.down(5);
+      expect(britishGas.energyUsage).toMatch('low-usage');
+    });
+  });
 });

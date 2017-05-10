@@ -29,3 +29,9 @@ Thermostat.prototype.powerModeOff = function () {
 Thermostat.prototype.resetTemp = function () {
   this._temp = 20;
 };
+
+Thermostat.prototype.energyUsage = function () {
+  if (this._temp < 18) {
+    return 'low-usage';
+  }
+};
