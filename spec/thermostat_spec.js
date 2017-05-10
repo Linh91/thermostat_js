@@ -9,10 +9,16 @@ describe('Thermostat', function(){
       expect(britishGas._temp).toEqual(20);
     });
   });
-  describe('it increase temp,', function(){
+  describe('it increases temp,', function(){
     it('returns 21', function(){
       britishGas.up(1);
       expect(britishGas._temp).toEqual(21);
+    });
+  });
+  describe('it decreases temp, ', function() {
+    it('returns 19', function() {
+      britishGas.down(1);
+      expect(britishGas._temp).toEqual(19);
     });
   });
 });
