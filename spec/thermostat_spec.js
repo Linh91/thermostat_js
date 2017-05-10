@@ -11,50 +11,58 @@ describe('Thermostat', function(){
   });
 
   describe('it increases temp,', function() {
-    it('returns 21', function(){
+    it('returns 21.', function(){
       britishGas.up(1);
       expect(britishGas._temp).toEqual(21);
     });
   });
 
   describe('it decreases temp, ', function() {
-    it('returns 19', function() {
+    it('returns 19.', function() {
       britishGas.down(1);
       expect(britishGas._temp).toEqual(19);
     });
   });
 
-  describe('minimum temp', function() {
-    it('is 10', function() {
+  describe('minimum temp,', function() {
+    it('is 10.', function() {
       expect(britishGas._minTemp).toEqual(10);
     });
 
-    it('cannot lower anymore', function(){
+    it('cannot lower anymore.', function(){
       britishGas.down(10)
       expect(function(){britishGas.down(1)}).toThrow('Minimum temp reached.');
     });
 
-    it('can not be less than 10', function() {
+    it('can not be less than 10.', function() {
       expect(function() {britishGas.down(11)}).toThrow('Minimum temp exceeded');
     })
   });
 
-  describe('power saving mode is on', function() {
-    it('maximum temp is 25', function() {
+  describe('power saving mode is on,', function() {
+    it('maximum temp is 25.', function() {
       expect(britishGas._maxTemp).toEqual(25);
     });
   });
 
-  describe('power saving mode is off', function(){
-    it('maximum is 32', function(){
+  describe('power saving mode is off,', function(){
+    it('maximum is 32.', function(){
       britishGas.powerModeOff();
       expect(britishGas._maxTemp).toEqual(32);
     });
 
-    it('power mode back on max temp 25', function() {
+    it('power mode back on max temp 25.', function() {
       britishGas.powerModeOff();
       britishGas.powerModeOn();
       expect(britishGas._maxTemp).toEqual(25);
+    });
+  });
+
+  describe('reset temp,', function(){
+    it('temp is 20.', function(){
+      britishGas.down(4);
+      britishGas.resetTemp();
+      expect(britishGas._temp).toEqual(20);
     });
   });
 });

@@ -25,3 +25,7 @@ Thermostat.prototype.powerModeOn = function () {
 Thermostat.prototype.powerModeOff = function () {
   this._maxTemp = 32;
 };
+
+Thermostat.prototype.resetTemp = function () {
+  this._temp = 20;
+};
