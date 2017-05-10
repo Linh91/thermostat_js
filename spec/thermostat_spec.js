@@ -71,5 +71,8 @@ describe('Thermostat', function(){
       britishGas.down(5);
       expect(britishGas.energyUsage).toMatch('low-usage');
     });
+    it('less than 25 returns "medium ussage"', function(){
+      expect(britishGas.energyUsage).toMatch('medium-usage');
+    });
   });
 });
