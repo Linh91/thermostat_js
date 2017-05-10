@@ -9,16 +9,28 @@ describe('Thermostat', function(){
       expect(britishGas._temp).toEqual(20);
     });
   });
-  describe('it increases temp,', function(){
+
+  describe('it increases temp,', function() {
     it('returns 21', function(){
       britishGas.up(1);
       expect(britishGas._temp).toEqual(21);
     });
   });
+
   describe('it decreases temp, ', function() {
     it('returns 19', function() {
       britishGas.down(1);
       expect(britishGas._temp).toEqual(19);
+    });
+  });
+
+  describe('minimum temp', function() {
+    it('is 10', function() {
+      expect(britishGas._minTemp).toEqual(10);
+    });
+    it('cannot lower anymore', function(){
+      britishGas.down(10)
+      expect(function(){britishGas.down(1)}).toThrow('Minimum temp reached.')
     });
   });
 });
