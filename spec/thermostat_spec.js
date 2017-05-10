@@ -6,7 +6,13 @@ describe('Thermostat', function(){
 
   describe('checks temp, ', function() {
     it('returns 20.', function() {
-      expect(britishGas._temp).toEqual(20)
+      expect(britishGas._temp).toEqual(20);
+    });
+  });
+  describe('it increase temp,', function(){
+    it('returns 21', function(){
+      britishGas.up(1);
+      expect(britishGas._temp).toEqual(21);
     });
   });
 });
