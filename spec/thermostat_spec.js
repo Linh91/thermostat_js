@@ -39,5 +39,22 @@ describe('Thermostat', function(){
     })
   });
 
-  
+  describe('power saving mode is on', function() {
+    it('maximum temp is 25', function() {
+      expect(britishGas._maxTemp).toEqual(25);
+    });
+  });
+
+  describe('power saving mode is off', function(){
+    it('maximum is 32', function(){
+      britishGas.powerModeOff();
+      expect(britishGas._maxTemp).toEqual(32);
+    });
+
+    it('power mode back on max temp 25', function() {
+      britishGas.powerModeOff();
+      britishGas.powerModeOn();
+      expect(britishGas._maxTemp).toEqual(25);
+    });
+  });
 });

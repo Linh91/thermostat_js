@@ -1,7 +1,8 @@
 function Thermostat(){
   this._temp = 20;
   this._minTemp = 10;
-}
+  this._maxTemp = 25;
+};
 
 Thermostat.prototype.up = function(number) {
   (this._temp += number);
@@ -17,4 +18,10 @@ Thermostat.prototype.down = function(number) {
   else {
     this._temp -= number;
   }
+};
+Thermostat.prototype.powerModeOn = function () {
+  this._maxTemp = 25;
+};
+Thermostat.prototype.powerModeOff = function () {
+  this._maxTemp = 32;
 };
