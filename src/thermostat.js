@@ -4,11 +4,16 @@ function Thermostat(){
   this._maxTemp = 25;
 };
 
-Thermostat.prototype.up = function(number) {
-  (this._temp += number);
+Thermostat.prototype.up = function(number = 1) {
+  if (this._temp >= this._maxTemp) {
+    throw 'Max temp reached';
+  }
+  else {
+    (this._temp += number);
+  }
 };
 
-Thermostat.prototype.down = function(number) {
+Thermostat.prototype.down = function(number = 1) {
   if (this._temp === this._minTemp) {
     throw  'Minimum temp reached.';
   }
@@ -19,9 +24,15 @@ Thermostat.prototype.down = function(number) {
     this._temp -= number;
   }
 };
+
+Thermostat.prototype.displayTemperature = function() {
+  return this._temp;
+};
+
 Thermostat.prototype.powerModeOn = function () {
   this._maxTemp = 25;
 };
+
 Thermostat.prototype.powerModeOff = function () {
   this._maxTemp = 32;
 };
@@ -31,13 +42,13 @@ Thermostat.prototype.resetTemp = function () {
 };
 
 Thermostat.prototype.energyUsage = function () {
-  if (this._temp < 18) {
-    return 'low-usage';
+  if (this._temp <= 18) {
+    return 'low';
   }
-  else if (this._temp < 25){
-    return 'medium-usage';
+  else if (this._temp <= 25){
+    return 'medium';
   }
   else {
-    return 'high-usage'
+    return 'high'
   }
 };
