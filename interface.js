@@ -37,8 +37,17 @@ $( document ).ready(function() {
   });
 
   $.get('http://api.openweathermap.org/data/2.5/weather?q=London&APPID=a9425ba885c0ee1329824a322456ee93&units=metric', function(data){
+    $('')
     $('#city').text(data.name + ' ' +data.main.temp + '°C');
   });
+
+  $('#current-city').change(function() {
+    var city = $('#current-city').val();
+    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=a9425ba885c0ee1329824a322456ee93&units=metric', function(data){
+      $('#city').text(data.name + ' ' +data.main.temp + '°C');
+    });
+
+  })
 
   function updateTempDisplay() {
     $('#temperature').text(thermostat.displayTemperature() + '°C');
