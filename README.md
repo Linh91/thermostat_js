@@ -17,3 +17,8 @@ This is a basic thermostate app built using JavaScript.
 &nbsp; - < 25 is <code>medium-usage</code>![#000000](https://placehold.it/15/000000/000000?text=+)<br>
 &nbsp; - anything else is <code>high-usage</code> ![#f03c15](https://placehold.it/15/f03c15/000000?text=+)<br>
 
+## How to run test
+
+This app used Jasmine as a testing framework.
+
+<code>$ open SpecRunner.html </code>
