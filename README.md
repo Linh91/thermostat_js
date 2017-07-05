@@ -22,3 +22,11 @@ This is a basic thermostate app built using JavaScript.
 This app used Jasmine as a testing framework.
 
 <code>$ open SpecRunner.html </code>
+
+## How to run app
+
+View app on browser.
+
+<code>$ open thermostat.html</code>
+
+![screen shot 2017-07-05 at 21 28 18](https://user-images.githubusercontent.com/17644847/27883583-ee35451a-61c8-11e7-9d75-96ef1bd0a50a.png)
